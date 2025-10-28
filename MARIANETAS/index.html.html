@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliiiz Cumpleañooos, mi amoooor! 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --light-pink: #FFF0F5; /* Rosa muy pálido */
+            --hot-pink: #FF69B4;   /* Rosa Caliente (Acento Principal) */
+            --gold-subtle: #FFD700; /* Dorado sutil (Acento Secundario) */
+            --white: #FFFFFF;
+            --black: #333333; /* Un negro suave para el texto */
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-pink);
+            color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 960px;
+            width: 95%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Pacifico', cursive;
+            color: var(--hot-pink);
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 2em;
+        }
+
+        h3 {
+            font-size: 1.6em;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: var(--hot-pink);
+            color: var(--white);
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #FF4081; /* Un rosa un poco más oscuro al hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-content {
+            display: none; /* Oculto por defecto */
+            padding: 20px 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Home Section Specifics */
+        #countdown {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--hot-pink);
+            margin-top: 20px;
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        /* Seccion Amor Specifics */
+        .love-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .love-card {
+            background-color: var(--light-pink);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .love-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .love-card h4 {
+            font-family: 'Pacifico', cursive;
+            color: var(--hot-pink);
+            font-size: 1.4em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .love-card h4::before {
+            content: '💖'; /* Icono de corazón */
+            font-size: 0.8em;
+        }
+
+
+        /* Acrostico Specifics */
+        .acrostic-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .acrostic-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            background-color: var(--light-pink);
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            width: fit-content;
+            max-width: 90%;
+        }
+
+        .acrostic-item strong {
+            font-size: 1.8em;
+            color: var(--hot-pink);
+            margin-right: 15px;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .acrostic-item span {
+            font-size: 1.1em;
+            color: var(--black);
+        }
+
+        /* Futuro Section Specifics */
+        .future-plans-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+
+        .future-plans-list li {
+            background-color: var(--light-pink);
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .future-plans-list li::before {
+            content: '✨'; /* Icono de estrella */
+            font-size: 1.2em;
+        }
+
+        /* Confetti Animation */
+        .confetti {
+            position: fixed; /* Cambiado a fixed para cubrir toda la ventana */
+            width: 10px;
+            height: 10px;
+            background-color: var(--hot-pink);
+            border-radius: 50%;
+            opacity: 0;
+            animation: confetti-fall 3s ease-out forwards;
+            pointer-events: none;
+            z-index: 9999; /* Asegura que esté por encima de todo */
+        }
+
+        .confetti.gold { background-color: var(--gold-subtle); }
+        .confetti.white { background-color: var(--white); }
+        .confetti.pink-light { background-color: var(--light-pink); }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--x), var(--y)) rotate(var(--deg));
+                opacity: 0;
+            }
+        }
+
+        /* Estrellas y globos flotantes (abstractos) */
+        .floating-element {
+            position: absolute;
+            opacity: 0.6;
+            animation: float 10s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-element.star {
+            content: '⭐';
+            font-size: 2em;
+            color: var(--gold-subtle);
+        }
+
+        .floating-element.balloon {
+            content: '🎈';
+            font-size: 2.5em;
+            color: var(--hot-pink);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+            h2 {
+                font-size: 1.6em;
+            }
+            h3 {
+                font-size: 1.4em;
+            }
+            button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+            .love-cards-grid {
+                grid-template-columns: 1fr;
+            }
+            .acrostic-item strong {
+                font-size: 1.5em;
+            }
+            .acrostic-item span, .future-plans-list li {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+            h3 {
+                font-size: 1.2em;
+            }
+            .container {
+                padding: 15px;
+            }
+            button {
+                margin: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Placeholder para música de fondo discreta -->
+    <audio id="background-music" autoplay loop>
+        <source src="ruta/a/tu/musica.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <div class="container">
+        <!-- Floating Elements -->
+        <div class="floating-element star" style="top: 10%; left: 5%;"></div>
+        <div class="floating-element balloon" style="top: 20%; right: 8%;"></div>
+        <div class="floating-element star" style="bottom: 15%; left: 15%;"></div>
+        <div class="floating-element balloon" style="bottom: 5%; right: 20%;"></div>
+        <div class="floating-element star" style="top: 5%; right: 50%;"></div>
+
+        <!-- SECCIÓN HOME / MENÚ PRINCIPAL -->
+        <div id="seccion-home" class="section-content active">
+            <h1>¡Feliz Cumpleaños, mi bebéeeee! 💕</h1>
+            <span id="countdown"></span>
+            <p>Este día es tan especial para ti como para mi, mi chiquitolinaaaa. Hice estas secciones especiales para celebrar tu preciosa existencia, incluso a la distancia, te sigo amando.</p>
+            <button onclick="mostrarSeccion('seccion-amor')">¿Por qué TE AMO, mi chiqui beibi? ❤️</button>
+            <button onclick="mostrarSeccion('seccion-acrostico')">Usted 📝</button>
+            <button onclick="mostrarSeccion('seccion-futuro')">Nuestras Aventuras Futuras ✈️</button>
+        </div>
+
+        <!-- SECCIÓN 1: ¿Por qué TE AMO, mi chiqui beibi? (Respuesta) -->
+        <div id="seccion-amor" class="section-content">
+            <h2>Siempre me pregunta: que por qué la amo¿? 💕</h2>
+            <div class="love-cards-grid">
+                <div class="love-card">
+                    <h4>Por su Risa y su Magia</h4>
+                    <p>Su risa es la melodía más hermosa que he escuchado, y su forma de ver el mundo, con esa magia única, transforma cada día con usted en una aventura.</p>
+                </div>
+                <div class="love-card">
+                    <h4>Por ser mi Brújula a la Distancia</h4>
+                    <p>Aunque estemos lejos, siempre encuentra la manera de amarme, escucharme y apreciarme. Eres mi norte, mi guía.</p>
+                </div>
+                <div class="love-card">
+                    <h4>Por la Paz que me da</h4>
+                    <p>En medio del caos, su voz y su presencia, me fascina, me traen una calma inmensa. Eres mi refugio, mi lugar seguro, mi calidez.</p>
+                </div>
+                <div class="love-card">
+                    <h4>Por su Valentía y Perseveracia</h4>
+                    <p>Admiro su fuerza para perseguir tus sueños y la pasión que pone en todo lo que haces. Me inspira a ser una mejor persona cada día para que se pueda sentir orgullosa de tener un novio tan precioso como yoooo dijeeee.</p>
+                </div>
+                <div class="love-card">
+                    <h4>Por la Chispa en tus Ojos y Muecas</h4>
+                    <p>Esa chispa única que brilla en sus ojos cuando habla de lo que ama o cuando pone esas geticas todas raretas. Se ve tan, pero tan preciosa.</p>
+                </div>
+                <div class="love-card">
+                    <h4>Por su Ternura Infinita</h4>
+                    <p>Cada gesto, cada mimo, cada muestra de cariño y que me diga que me ama mucho, me envuelve en una ternura que solo usted sabe dar. Es una ternurita con patas.</p>
+                </div>
+                <div class="love-card">
+                    <h4>Por la Inteligencia de su Corazón</h4>
+                    <p>Siempre he admirado su gran capacidad para entender, para escuchar y para ofrecer una perspectiva sabia, no solo con la mente sino con el corazón, me asombra.</p>
+                </div>
+                <div class="love-card">
+                    <h4>Por hacer lo Ordinario, Extraordinario</h4>
+                    <p>Con usted, incluso las cosas más simples se vuelven memorables y especiales. Adoro que me vea jugar y que veamos series. Tiene el don de llenar de luz cualquier momento.</p>
+                </div>
+                <div class="love-card">
+                    <h4>Porque Eres Simplemente Tú</h4>
+                    <p>No hay una sola razón, sino la suma de todo lo que eres. TE AMO por su esencia, por su autenticidad, por ser mi bebé, mi dueña.</p>
+                </div>
+            </div>
+            <button onclick="mostrarSeccion('seccion-home')" style="margin-top: 30px;">Volver al Menú Principal 🏠</button>
+        </div>
+
+        <!-- SECCIÓN 2: Acróstico de MARIANA -->
+        <div id="seccion-acrostico" class="section-content">
+            <h2>El nombre de la mujer que me conquistó (que no le gusta que le llame por su nombre, dice que no la conoce), Mariana</h2>
+            <ul class="acrostic-list">
+                <li class="acrostic-item"><strong>M</strong> <span>agia que transformó mi vida.</span></li>
+                <li class="acrostic-item"><strong>A</strong> <span>mor incondicional y puro.</span></li>
+                <li class="acrostic-item"><strong>R</strong> <span>isa que me cura el alma.</span></li>
+                <li class="acrostic-item"><strong>I</strong> <span>nspiración de cada día.</span></li>
+                <li class="acrostic-item"><strong>A</strong> <span>brazitoos que me va a pasar dandoooo.</span></li>
+                <li class="acrostic-item"><strong>N</strong> <span>uestra conexión, que es irrompible.</span></li>
+                <li class="acrostic-item"><strong>A</strong> <span>legría de mis días.</span></li>
+            </ul>
+            <button onclick="mostrarSeccion('seccion-home')" style="margin-top: 30px;">Volver al Menú Principal 🏠</button>
+        </div>
+
+        <!-- SECCIÓN 3: Planes a Distancia -->
+        <div id="seccion-futuro" class="section-content">
+            <h2>Nuestras Próximas Aventuras Juntos (¡Pronto!)</h2>
+            <p>Aunque la distancia nos separe por ahora, nuestros planes y sueños se cumplirán. Disfrutaré cada día de mi vida estando a tu lado, mi amor. Estás sólo son algunas de las muuuchas cosas que haremos cuando estemos en personita :)</p>
+            <ul class="future-plans-list">
+                <li>El primer viaje juntos a cualquier lugar que queramos ir, será especial, porque estás tú.</li>
+                <li>Una maratón de anime comiendo sushi hasta quedar como globitoooos.</li>
+                <li>Ir a un tenedor libre de sushiiii, porque tanto a mi como a mi bebé le encanta. ¿Cierto que shi?</li>
+                <li>Días enteros de risas y conversaciones sin fin, sin importar la hora.</li>
+                <li>¡Y muchos, muchos abrazos y besitos cuando estemos juntitos en personaaaaaa!</li>
+            </ul>
+            <button onclick="mostrarSeccion('seccion-home')" style="margin-top: 30px;">Volver al Menú Principal 🏠</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const countdownElement = document.getElementById('countdown');
+            const birthdayMonth = 9; // Octubre es el mes 9 (0-11)
+            const birthdayDay = 28;
+
+            function updateCountdown() {
+                const now = new Date();
+                let birthdayDate = new Date(now.getFullYear(), birthdayMonth, birthdayDay);
+
+                // Si el cumpleaños ya pasó este año, establecerlo para el próximo año
+                if (now > birthdayDate) {
+                    birthdayDate.setFullYear(now.getFullYear() + 1);
+                }
+
+                const timeDiff = birthdayDate.getTime() - now.getTime();
+
+                if (timeDiff <= 0) { // Si es el día del cumpleaños o ya pasó
+                    countdownElement.innerHTML = "¡Feliz Cumpleaños! Eres la razón de mi alegría HOY. 🎉";
+                    // Activar confeti al cargar si es el cumpleaños
+                    if (!sessionStorage.getItem('confettiShown')) { // Para que no se repita en cada recarga
+                        for (let i = 0; i < 100; i++) {
+                            createConfetti();
+                        }
+                        sessionStorage.setItem('confettiShown', 'true');
+                    }
+                } else {
+                    sessionStorage.removeItem('confettiShown'); // Resetear si no es el día
+                    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+                    countdownElement.innerHTML = `Faltan ${days}d ${hours}h ${minutes}m ${seconds}s para tu cumpleaños! 🎂`;
+                }
+            }
+
+            // Actualizar el contador cada segundo
+            setInterval(updateCountdown, 1000);
+            updateCountdown(); // Llamar una vez al inicio para evitar el retraso de 1 segundo
+
+            // Función para mostrar/ocultar secciones (SPA)
+            window.mostrarSeccion = function(id) {
+                const sections = document.querySelectorAll('.section-content');
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(id).classList.add('active');
+
+                // Si se vuelve al home, y es el cumpleaños, lanzar confeti de nuevo
+                if (id === 'seccion-home' && countdownElement.innerHTML.includes('HOY')) {
+                     for (let i = 0; i < 50; i++) {
+                        createConfetti();
+                    }
+                }
+            };
+
+            // Función para crear un trozo de confeti
+            function createConfetti() {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                const colors = ['hot-pink', 'gold', 'white', 'pink-light'];
+                confetti.classList.add(colors[Math.floor(Math.random() * colors.length)]);
+
+                const startX = Math.random() * window.innerWidth;
+                const startY = -20;
+                const endX = startX + (Math.random() - 0.5) * 600;
+                const endY = window.innerHeight + 50;
+                const rotation = Math.random() * 720;
+
+                confetti.style.left = `${startX}px`;
+                confetti.style.top = `${startY}px`;
+                confetti.style.setProperty('--x', `${endX - startX}px`);
+                confetti.style.setProperty('--y', `${endY - startY}px`);
+                confetti.style.setProperty('--deg', `${rotation}deg`);
+                confetti.style.animationDelay = `${Math.random() * 0.8}s`;
+                confetti.style.animationDuration = `${2.5 + Math.random() * 2.5}s`;
+
+                document.body.appendChild(confetti);
+
+                confetti.addEventListener('animationend', () => {
+                    confetti.remove();
+                });
+            }
+
+            // Opcional: Reproducir música al cargar
+            const music = document.getElementById('background-music');
+            if (music) {
+                music.volume = 0.2; // Volumen bajo
+                music.play().catch(e => console.log("Reproducción de audio bloqueada:", e));
+            }
+        });
+    </script>
+</body>
+</html>
